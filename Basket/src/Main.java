@@ -49,7 +49,7 @@ public class Main implements Basket{
         System.out.println(prod.getProducts());
         System.out.println(prod.getProductQuantity("Клавиатура"));
         prod.updateProductQuantity("Клавиатура", 1);
-        prod.removeProduct("Мышь");
+        prod.removeProduct("Мышь гавнарская");
         System.out.println(prod.getProducts());
         System.out.println(prod.getProductQuantity("Толстый притолстый барабан"));
         prod.clear();
