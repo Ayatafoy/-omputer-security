@@ -1,0 +1,8 @@
+target/
+.idea/
+out/
+*.iml
+*.xml
+*.ini
+*.txt
+*.xlsx
