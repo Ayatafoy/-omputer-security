@@ -44,8 +44,8 @@ public class Main implements Basket{
         prod.addProduct("Системный блок", 1);
         prod.addProduct("Монитор", 2);
         prod.addProduct("Мышь", 2);
-        prod.addProduct("Овцулька", 2);
-        prod.addProduct("Баранулька", 2);
+        prod.addProduct("Овцулька попо", 2);
+        prod.addProduct("Баранулька попо", 2);
         System.out.println(prod.getProducts());
         System.out.println(prod.getProductQuantity("Клавиатура"));
         prod.updateProductQuantity("Клавиатура", 1);
