@@ -8,28 +8,28 @@ import java.util.HashSet;
 
 
 class regFrame extends JFrame {
-    //инициализация объектов интерфейса формы
+    //РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РѕР±СЉРµРєС‚РѕРІ РёРЅС‚РµСЂС„РµР№СЃР° С„РѕСЂРјС‹
     Dimension size = new Dimension(500, 50);
-    private JLabel text1 = new JLabel("                           Введите логин:");
+    private JLabel text1 = new JLabel("                           Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ:");
     private JTextField textField1 = new JTextField();
-    private JLabel text2 = new JLabel("                        Введите пароль:");
+    private JLabel text2 = new JLabel("                        Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ:");
     private JTextField textField2 = new JTextField();
-    private JButton regButton = new JButton("Зарегистрироваться");
+    private JButton regButton = new JButton("Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ");
 
-    //метод, описывающий процедуру регистрации в систему
+    //РјРµС‚РѕРґ, РѕРїРёСЃС‹РІР°СЋС‰РёР№ РїСЂРѕС†РµРґСѓСЂСѓ СЂРµРіРёСЃС‚СЂР°С†РёРё РІ СЃРёСЃС‚РµРјСѓ
     public void result() throws Exception {
         String login = this.textField1.getText();
         String password = this.textField2.getText();
         if (login.equals("")){
-            textField1.replaceSelection("Введите логин!");
+            textField1.replaceSelection("Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ!");
         }
         if (password.equals("")){
-            textField2.replaceSelection("Введите пароль!");
+            textField2.replaceSelection("Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ!");
         }
         if (!password.equals("") && !login.equals("")) {
             BufferedWriter out = new BufferedWriter(new FileWriter("LP.txt", true));
             BufferedReader in = new BufferedReader(new FileReader("LP.txt"));
-            //множество хранит авторизационные данные всех юзеров
+            //РјРЅРѕР¶РµСЃС‚РІРѕ С…СЂР°РЅРёС‚ Р°РІС‚РѕСЂРёР·Р°С†РёРѕРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РІСЃРµС… СЋР·РµСЂРѕРІ
             HashSet set = new HashSet();
             String str;
             while ((str = in.readLine()) != null) {
@@ -45,11 +45,11 @@ class regFrame extends JFrame {
             if (!set.contains(login)) {
                 out.append(login).append("   ").append(password).append("\r\n");
                 textField1.setText("");
-                textField1.replaceSelection("Вы успешно зарегистрированы!");
+                textField1.replaceSelection("Р’С‹ СѓСЃРїРµС€РЅРѕ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅС‹!");
                 textField2.setText("");
             } else {
                 textField1.setText("");
-                textField1.replaceSelection("Пользователь с таким именем уже существует!");
+                textField1.replaceSelection("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј РёРјРµРЅРµРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!");
                 textField2.setText("");
             }
             out.close();
@@ -57,7 +57,7 @@ class regFrame extends JFrame {
     }
 
     public regFrame() {
-        //привязка элементов интерфейса к окну приложения
+        //РїСЂРёРІСЏР·РєР° СЌР»РµРјРµРЅС‚РѕРІ РёРЅС‚РµСЂС„РµР№СЃР° Рє РѕРєРЅСѓ РїСЂРёР»РѕР¶РµРЅРёСЏ
         setDefaultCloseOperation(regFrame.DISPOSE_ON_CLOSE);
         setSize(800, 600);
         setLocation(580, 250);
@@ -73,7 +73,7 @@ class regFrame extends JFrame {
         this.textField2.setPreferredSize(size);
         p.add(regButton);
 
-        //обработка события нажатия клавиши регистрации
+        //РѕР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€Рё СЂРµРіРёСЃС‚СЂР°С†РёРё
         this.regButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
