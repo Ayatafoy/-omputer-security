@@ -9,26 +9,26 @@ import java.io.FileOutputStream;
 
 class PassSystem extends JFrame {
 
-    //инициализация объектов интерфейса формы
+    //РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РѕР±СЉРµРєС‚РѕРІ РёРЅС‚РµСЂС„РµР№СЃР° С„РѕСЂРјС‹
     Dimension size = new Dimension(1750, 50);
-    private JLabel text1 = new JLabel("Введите логин:  ");
+    private JLabel text1 = new JLabel("Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ:  ");
     private JTextField textField1 = new JTextField();
-    private JLabel text2 = new JLabel("Введите пароль:");
+    private JLabel text2 = new JLabel("Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ:");
     private JTextField textField2 = new JTextField();
-    private JButton enterButton = new JButton("Войти в систему");
-    private JButton exitButton = new JButton("Выйти из системы");
-    private JButton regButton = new JButton("Регистрация");
+    private JButton enterButton = new JButton("Р’РѕР№С‚Рё РІ СЃРёСЃС‚РµРјСѓ");
+    private JButton exitButton = new JButton("Р’С‹Р№С‚Рё РёР· СЃРёСЃС‚РµРјС‹");
+    private JButton regButton = new JButton("Р РµРіРёСЃС‚СЂР°С†РёСЏ");
     private FileInputStream inputStream;
-    private boolean testOpen = false;//переменные фиксации состояния системы,
-    private boolean testFailed = false;//чтобы был известен статус файлов, скрыты ли они уже или нет
+    private boolean testOpen = false;//РїРµСЂРµРјРµРЅРЅС‹Рµ С„РёРєСЃР°С†РёРё СЃРѕСЃС‚РѕСЏРЅРёСЏ СЃРёСЃС‚РµРјС‹,
+    private boolean testFailed = false;//С‡С‚РѕР±С‹ Р±С‹Р» РёР·РІРµСЃС‚РµРЅ СЃС‚Р°С‚СѓСЃ С„Р°Р№Р»РѕРІ, СЃРєСЂС‹С‚С‹ Р»Рё РѕРЅРё СѓР¶Рµ РёР»Рё РЅРµС‚
 
-    //запуск программы
+    //Р·Р°РїСѓСЃРє РїСЂРѕРіСЂР°РјРјС‹
     public static void main(String[] args) throws Exception {
         PassSystem app = new PassSystem();
         app.setVisible(true);
     }
 
-    //метод перевода числа в двоичную последовательность
+    //РјРµС‚РѕРґ РїРµСЂРµРІРѕРґР° С‡РёСЃР»Р° РІ РґРІРѕРёС‡РЅСѓСЋ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ
     public static String binarhyCoding(int x) {
         String bynaryCod = "";
 
@@ -45,10 +45,10 @@ class PassSystem extends JFrame {
         return bynaryCod;
     }
 
-    //перевод строки в двоичную последовательность
+    //РїРµСЂРµРІРѕРґ СЃС‚СЂРѕРєРё РІ РґРІРѕРёС‡РЅСѓСЋ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ
     public static String binaryPosl(String login){
-        String alf = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzАаБбВвГгДдЕеЁёЖжЗзИиЙйКкЛлМм" +
-                "НнОоПпРрСсТтУуФфХхЦцЧчШшЩщЪъЫыЬьЭэЮюЯя0123456789,.;:@-=+<>[]{}/|!?%* ";
+        String alf = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzРђР°Р‘Р±Р’РІР“РіР”РґР•РµРЃС‘Р–Р¶Р—Р·РРёР™Р№РљРєР›Р»РњРј" +
+                "РќРЅРћРѕРџРїР СЂРЎСЃРўС‚РЈСѓР¤С„РҐС…Р¦С†Р§С‡РЁС€Р©С‰РЄСЉР«С‹Р¬СЊР­СЌР®СЋРЇСЏ0123456789,.;:@-=+<>[]{}/|!?%* ";
         int k = 0;
         String kod = "";
 
@@ -64,7 +64,7 @@ class PassSystem extends JFrame {
         }
         return kod;
     }
-    //метод сложения бинарных последоватеьностей по модулю 2(операция XOR)
+    //РјРµС‚РѕРґ СЃР»РѕР¶РµРЅРёСЏ Р±РёРЅР°СЂРЅС‹С… РїРѕСЃР»РµРґРѕРІР°С‚РµСЊРЅРѕСЃС‚РµР№ РїРѕ РјРѕРґСѓР»СЋ 2(РѕРїРµСЂР°С†РёСЏ XOR)
     public static String additionTwo(String s1, String s2) {
         int i = 0;
         String s3 = "";
@@ -80,7 +80,7 @@ class PassSystem extends JFrame {
         return s3;
     }
 
-    //метод перевода строки в код crc32
+    //РјРµС‚РѕРґ РїРµСЂРµРІРѕРґР° СЃС‚СЂРѕРєРё РІ РєРѕРґ crc32
     public static String crc32(String str) throws Exception {
         String Key = "10000100110000010001110110110111";
         int k = 0, n = str.length();
@@ -104,7 +104,7 @@ class PassSystem extends JFrame {
         return str;
     }
 
-    //сдвиг каждого бита на 3, чтобы файлы не отображались при выходе из системы
+    //СЃРґРІРёРі РєР°Р¶РґРѕРіРѕ Р±РёС‚Р° РЅР° 3, С‡С‚РѕР±С‹ С„Р°Р№Р»С‹ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°Р»РёСЃСЊ РїСЂРё РІС‹С…РѕРґРµ РёР· СЃРёСЃС‚РµРјС‹
     public static int[] crypto(int[] mas, int n){
         for (int i = 0; i < n; i++){
             mas[i] += 3;
@@ -112,7 +112,7 @@ class PassSystem extends JFrame {
         return mas;
     }
 
-    //восстановление исходной последовательности бит, для корректного отображения файлов при входе
+    //РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РёСЃС…РѕРґРЅРѕР№ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё Р±РёС‚, РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ С„Р°Р№Р»РѕРІ РїСЂРё РІС…РѕРґРµ
     public static int[] desCrypto(int[] mas, int n){
         for (int i = 0; i < n; i++){
             mas[i] -= 3;
@@ -120,20 +120,20 @@ class PassSystem extends JFrame {
         return mas;
     }
 
-    //метод, который вызывается при выходе из системы, находит защищенные файлы и скрывает
-    //их путем вызова метода crypto, в папке users хранишь файлы любого формата,
-    //к ней ты получаешь доступ при авторизации
+    //РјРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РІС‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё РІС‹С…РѕРґРµ РёР· СЃРёСЃС‚РµРјС‹, РЅР°С…РѕРґРёС‚ Р·Р°С‰РёС‰РµРЅРЅС‹Рµ С„Р°Р№Р»С‹ Рё СЃРєСЂС‹РІР°РµС‚
+    //РёС… РїСѓС‚РµРј РІС‹Р·РѕРІР° РјРµС‚РѕРґР° crypto, РІ РїР°РїРєРµ users С…СЂР°РЅРёС€СЊ С„Р°Р№Р»С‹ Р»СЋР±РѕРіРѕ С„РѕСЂРјР°С‚Р°,
+    //Рє РЅРµР№ С‚С‹ РїРѕР»СѓС‡Р°РµС€СЊ РґРѕСЃС‚СѓРї РїСЂРё Р°РІС‚РѕСЂРёР·Р°С†РёРё
     public void failedFiles() throws IOException {
-        File dir = new File("C:\\Users\\Алексей\\Desktop\\Autor\\users");
+        File dir = new File("C:\\Users\\РђР»РµРєСЃРµР№\\Desktop\\Autor\\users");
         String s[] = dir.list();
         for (int i = 0; i < s.length; i++) {
-            inputStream = new FileInputStream("C:\\Users\\Алексей\\Desktop\\Autor\\users\\" + s[i]);
+            inputStream = new FileInputStream("C:\\Users\\РђР»РµРєСЃРµР№\\Desktop\\Autor\\users\\" + s[i]);
             int data = inputStream.available();
             InputStream in = new BufferedInputStream(new FileInputStream
-                    ("C:\\Users\\Алексей\\Desktop\\Autor\\users\\" + s[i]), data);
+                    ("C:\\Users\\РђР»РµРєСЃРµР№\\Desktop\\Autor\\users\\" + s[i]), data);
             int val = in.read();
             OutputStream out = new BufferedOutputStream(new FileOutputStream
-                    ("C:\\Users\\Алексей\\Desktop\\Autor\\users\\" + s[i]));
+                    ("C:\\Users\\РђР»РµРєСЃРµР№\\Desktop\\Autor\\users\\" + s[i]));
             int j = 0, mas[] = new int[data];
             mas[j] = val;
             while ((val = in.read()) != -1) {
@@ -153,20 +153,20 @@ class PassSystem extends JFrame {
         }
     }
 
-    //метод, который вызывается при входе в систему, находит защищенные файлы и открывает
-    //их путем вызова метода desCrypto, в папке users хранишь файлы любого формата,
-    //к ней ты получаешь доступ при авторизации
+    //РјРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РІС‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё РІС…РѕРґРµ РІ СЃРёСЃС‚РµРјСѓ, РЅР°С…РѕРґРёС‚ Р·Р°С‰РёС‰РµРЅРЅС‹Рµ С„Р°Р№Р»С‹ Рё РѕС‚РєСЂС‹РІР°РµС‚
+    //РёС… РїСѓС‚РµРј РІС‹Р·РѕРІР° РјРµС‚РѕРґР° desCrypto, РІ РїР°РїРєРµ users С…СЂР°РЅРёС€СЊ С„Р°Р№Р»С‹ Р»СЋР±РѕРіРѕ С„РѕСЂРјР°С‚Р°,
+    //Рє РЅРµР№ С‚С‹ РїРѕР»СѓС‡Р°РµС€СЊ РґРѕСЃС‚СѓРї РїСЂРё Р°РІС‚РѕСЂРёР·Р°С†РёРё
     public void openFiles() throws IOException {
-        File dir = new File("C:\\Users\\Алексей\\Desktop\\Autor\\users");
+        File dir = new File("C:\\Users\\РђР»РµРєСЃРµР№\\Desktop\\Autor\\users");
         String s[] = dir.list();
         for (int i = 0; i < s.length; i++) {
-            inputStream = new FileInputStream("C:\\Users\\Алексей\\Desktop\\Autor\\users\\" + s[i]);
+            inputStream = new FileInputStream("C:\\Users\\РђР»РµРєСЃРµР№\\Desktop\\Autor\\users\\" + s[i]);
             int data = inputStream.available();
             InputStream in = new BufferedInputStream(new FileInputStream
-                    ("C:\\Users\\Алексей\\Desktop\\Autor\\users\\" + s[i]), data);
+                    ("C:\\Users\\РђР»РµРєСЃРµР№\\Desktop\\Autor\\users\\" + s[i]), data);
             int val = in.read();
             OutputStream out = new BufferedOutputStream(new FileOutputStream
-                    ("C:\\Users\\Алексей\\Desktop\\Autor\\users\\" + s[i]));
+                    ("C:\\Users\\РђР»РµРєСЃРµР№\\Desktop\\Autor\\users\\" + s[i]));
             int j = 0, mas[] = new int[data];
             mas[j] = val;
             while ((val = in.read()) != -1) {
@@ -186,62 +186,62 @@ class PassSystem extends JFrame {
         }
     }
 
-    //создание нового окна, при нажатии на кнопку регистрации
+    //СЃРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ РѕРєРЅР°, РїСЂРё РЅР°Р¶Р°С‚РёРё РЅР° РєРЅРѕРїРєСѓ СЂРµРіРёСЃС‚СЂР°С†РёРё
     public void registratoin() throws Exception {
         regFrame app = new regFrame();
         app.setVisible(true);
     }
 
-    //метод, описывающий процедуру выхода из системы
+    //РјРµС‚РѕРґ, РѕРїРёСЃС‹РІР°СЋС‰РёР№ РїСЂРѕС†РµРґСѓСЂСѓ РІС‹С…РѕРґР° РёР· СЃРёСЃС‚РµРјС‹
     public void exit() throws Exception {
         if (!testFailed) {
             failedFiles();
             textField1.setText("");
-            textField1.replaceSelection("Вы успешно покинули систему!");
+            textField1.replaceSelection("Р’С‹ СѓСЃРїРµС€РЅРѕ РїРѕРєРёРЅСѓР»Рё СЃРёСЃС‚РµРјСѓ!");
             textField2.setText("");
         }
     }
 
-    //метод, описывающий процедуру входа в систему
+    //РјРµС‚РѕРґ, РѕРїРёСЃС‹РІР°СЋС‰РёР№ РїСЂРѕС†РµРґСѓСЂСѓ РІС…РѕРґР° РІ СЃРёСЃС‚РµРјСѓ
     public void enter() throws Exception {
         if (!testOpen) {
             BufferedReader in = new BufferedReader(new FileReader("LP.txt"));
-            //множество хранит авторизационные данные всех юзеров
+            //РјРЅРѕР¶РµСЃС‚РІРѕ С…СЂР°РЅРёС‚ Р°РІС‚РѕСЂРёР·Р°С†РёРѕРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РІСЃРµС… СЋР·РµСЂРѕРІ
             HashSet setAll = new HashSet();
             String str, login = this.textField1.getText(), password = this.textField2.getText();
             while ((str = in.readLine()) != null) {
                 setAll.add(str);
             }
 
-            //перевод логина и пароля в двоичную строку
+            //РїРµСЂРµРІРѕРґ Р»РѕРіРёРЅР° Рё РїР°СЂРѕР»СЏ РІ РґРІРѕРёС‡РЅСѓСЋ СЃС‚СЂРѕРєСѓ
             String log = binaryPosl(login);
             String pass = binaryPosl(password);
 
             login = log;
             password = pass;
 
-            //перевод логина и пароля в хеш код алгоритмом crc32
+            //РїРµСЂРµРІРѕРґ Р»РѕРіРёРЅР° Рё РїР°СЂРѕР»СЏ РІ С…РµС€ РєРѕРґ Р°Р»РіРѕСЂРёС‚РјРѕРј crc32
             login = crc32(login);
             password = crc32(password);
 
             in.close();
 
-            //оповещение пользователя о результатах авторазации
+            //РѕРїРѕРІРµС‰РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Рѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°С… Р°РІС‚РѕСЂР°Р·Р°С†РёРё
             if (setAll.contains(login + "   " + password)) {
                 textField1.setText("");
-                textField1.replaceSelection("Вы успешно авторизованы!");
+                textField1.replaceSelection("Р’С‹ СѓСЃРїРµС€РЅРѕ Р°РІС‚РѕСЂРёР·РѕРІР°РЅС‹!");
                 textField2.setText("");
                 openFiles();
             } else {
                 textField1.setText("");
-                textField1.replaceSelection("Не верно введен логин или пароль!");
+                textField1.replaceSelection("РќРµ РІРµСЂРЅРѕ РІРІРµРґРµРЅ Р»РѕРіРёРЅ РёР»Рё РїР°СЂРѕР»СЊ!");
                 textField2.setText("");
             }
 
         }
     }
 
-    //конструктор приложения
+    //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїСЂРёР»РѕР¶РµРЅРёСЏ
     public PassSystem() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1920, 1032);
@@ -249,7 +249,7 @@ class PassSystem extends JFrame {
         setVisible(true);
         JPanel p = new JPanel();
         add(p);
-        p.setLayout(new FlowLayout());//привязка элементов интерфейса к окну приложения
+        p.setLayout(new FlowLayout());//РїСЂРёРІСЏР·РєР° СЌР»РµРјРµРЅС‚РѕРІ РёРЅС‚РµСЂС„РµР№СЃР° Рє РѕРєРЅСѓ РїСЂРёР»РѕР¶РµРЅРёСЏ
         p.add(text1);
         p.add(textField1);
         p.add(text2);
@@ -260,7 +260,7 @@ class PassSystem extends JFrame {
         p.add(enterButton);
         p.add(exitButton);
 
-        //обработка события нажатия клавиши входа в систему
+        //РѕР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€Рё РІС…РѕРґР° РІ СЃРёСЃС‚РµРјСѓ
         this.enterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -272,8 +272,8 @@ class PassSystem extends JFrame {
             }
         });
 
-        //обработка события нажатия клавиши выхода из системы
-        this.exitButton.addActionListener(new ActionListener() {//обработка события нажатия клавиши выхода из системы
+        //РѕР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€Рё РІС‹С…РѕРґР° РёР· СЃРёСЃС‚РµРјС‹
+        this.exitButton.addActionListener(new ActionListener() {//РѕР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€Рё РІС‹С…РѕРґР° РёР· СЃРёСЃС‚РµРјС‹
             public void actionPerformed(ActionEvent e) {
                 try {
                     PassSystem.this.exit();
@@ -284,7 +284,7 @@ class PassSystem extends JFrame {
             }
         });
 
-        //обработка события нажатия клавиши регистрации
+        //РѕР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РєР»Р°РІРёС€Рё СЂРµРіРёСЃС‚СЂР°С†РёРё
         this.regButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {

@@ -5,46 +5,46 @@ import java.io.RandomAccessFile;
 public class Main {
     public static int k = 0;
     public static void main(String args[]) throws IOException {
-        File f = new File("C:\\Users\\INTELLY_POWER\\IdeaProjects\\Search\\Презентация Microsoft PowerPoint.pptx");
-        //файл, который мы будем искать
+        File f = new File("C:\\Users\\INTELLY_POWER\\IdeaProjects\\Search\\РџСЂРµР·РµРЅС‚Р°С†РёСЏ Microsoft PowerPoint.pptx");
+        //С„Р°Р№Р», РєРѕС‚РѕСЂС‹Р№ РјС‹ Р±СѓРґРµРј РёСЃРєР°С‚СЊ
         File dir = new File("C:\\Users\\INTELLY_POWER\\IdeaProjects\\Search\\Directory");
-        //папка, в которой мы будем искать файл
-        manage(512, 32, f, dir);//вызов функции, которая выделяет сигнатуру, начиная со смещения 512 длиной 32
+        //РїР°РїРєР°, РІ РєРѕС‚РѕСЂРѕР№ РјС‹ Р±СѓРґРµРј РёСЃРєР°С‚СЊ С„Р°Р№Р»
+        manage(512, 32, f, dir);//РІС‹Р·РѕРІ С„СѓРЅРєС†РёРё, РєРѕС‚РѕСЂР°СЏ РІС‹РґРµР»СЏРµС‚ СЃРёРіРЅР°С‚СѓСЂСѓ, РЅР°С‡РёРЅР°СЏ СЃРѕ СЃРјРµС‰РµРЅРёСЏ 512 РґР»РёРЅРѕР№ 32
     }
 
     private static void manage(int smesh, int len, File f, File dir) throws IOException {
         String sign = "";
         RandomAccessFile in = new RandomAccessFile
-                (f, "r");//инициируем объект произвольного доступа к файлу
-        in.seek(smesh);//ставим указатель на смещение 512
+                (f, "r");//РёРЅРёС†РёРёСЂСѓРµРј РѕР±СЉРµРєС‚ РїСЂРѕРёР·РІРѕР»СЊРЅРѕРіРѕ РґРѕСЃС‚СѓРїР° Рє С„Р°Р№Р»Сѓ
+        in.seek(smesh);//СЃС‚Р°РІРёРј СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРјРµС‰РµРЅРёРµ 512
         for (int i = 0; i < len; i++) {
-            sign += in.readChar();//считываем сигнатуру заданной длины
+            sign += in.readChar();//СЃС‡РёС‚С‹РІР°РµРј СЃРёРіРЅР°С‚СѓСЂСѓ Р·Р°РґР°РЅРЅРѕР№ РґР»РёРЅС‹
         }
-        search(sign, smesh, len, dir);//запускаем поиск
+        search(sign, smesh, len, dir);//Р·Р°РїСѓСЃРєР°РµРј РїРѕРёСЃРє
         if (k == 0)
-            System.out.print("Файл не найден!");
+            System.out.print("Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ!");
     }
 
     private static void search(String sign, int smesh, int len, File dir) throws IOException {
-        String s[] = dir.list();//получаем то, что находится в папке
+        String s[] = dir.list();//РїРѕР»СѓС‡Р°РµРј С‚Рѕ, С‡С‚Рѕ РЅР°С…РѕРґРёС‚СЃСЏ РІ РїР°РїРєРµ
         for (int i = 0; i < s.length; i++){//
-            File f = new File(dir + "\\" + s[i]);//последовательно считываем файлы из папки
-            if(!f.isDirectory()){//если это не папка
+            File f = new File(dir + "\\" + s[i]);//РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ СЃС‡РёС‚С‹РІР°РµРј С„Р°Р№Р»С‹ РёР· РїР°РїРєРё
+            if(!f.isDirectory()){//РµСЃР»Рё СЌС‚Рѕ РЅРµ РїР°РїРєР°
                 String str = "";
                 RandomAccessFile in = new RandomAccessFile
-                        (f, "r");//инициируем объект произвольного доступа
-                in.seek(smesh);//ставим указатель на смещение 512
+                        (f, "r");//РёРЅРёС†РёРёСЂСѓРµРј РѕР±СЉРµРєС‚ РїСЂРѕРёР·РІРѕР»СЊРЅРѕРіРѕ РґРѕСЃС‚СѓРїР°
+                in.seek(smesh);//СЃС‚Р°РІРёРј СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃРјРµС‰РµРЅРёРµ 512
                 for (int j = 0; j < len; j++) {
-                    str += in.readChar();//считываем сигнатуру заданной длины
+                    str += in.readChar();//СЃС‡РёС‚С‹РІР°РµРј СЃРёРіРЅР°С‚СѓСЂСѓ Р·Р°РґР°РЅРЅРѕР№ РґР»РёРЅС‹
                 }
-                if (str.equals(sign)) {//сравниваем сигнатуру с эталонной
-                    System.out.print(f);//если они равны, выводим путь
+                if (str.equals(sign)) {//СЃСЂР°РІРЅРёРІР°РµРј СЃРёРіРЅР°С‚СѓСЂСѓ СЃ СЌС‚Р°Р»РѕРЅРЅРѕР№
+                    System.out.print(f);//РµСЃР»Рё РѕРЅРё СЂР°РІРЅС‹, РІС‹РІРѕРґРёРј РїСѓС‚СЊ
                     System.out.print("\n");
                     k++;
                 }
             }
             else
-                search(sign, smesh, len, f);//если это папка, рекурсивно переходим к поиску файла в ней
+                search(sign, smesh, len, f);//РµСЃР»Рё СЌС‚Рѕ РїР°РїРєР°, СЂРµРєСѓСЂСЃРёРІРЅРѕ РїРµСЂРµС…РѕРґРёРј Рє РїРѕРёСЃРєСѓ С„Р°Р№Р»Р° РІ РЅРµР№
         }
     }
 }
